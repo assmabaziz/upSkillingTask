@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bg-6D91EE {
+    @apply bg-[#6D91EE];
+  }
+  .bg-5180F6 {
+    @apply bg-[#5180F6];
+  }
+  .layer-color {
+    @apply bg-[#6d92eeb3];
+  }
+  .main-text-color {
+    @apply text-[#6D91EE];
+  }
+  .btn-style {
+    @apply rounded-[71px] px-1 py-2;
+  }
+  .bt-hover {
+    @apply duration-300 hover:bg-[#4577f5];
+  }
+  .box-style {
+    @apply shadow-md shadow-[#6d92eea1] duration-200 hover:shadow-xl hover:shadow-[#6d92eea1];
+  }
+  .line-h-89 {
+    @apply leading-[89.5px];
+  }
+}
+@layer base {
+  html {
+    font-family: "Poppins", sans-serif;
+  }
+}

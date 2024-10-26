@@ -1,0 +1,73 @@
+<section class="mb-8 pt-5 bg-[#FCFCFC]">
+  <div class="w-fit mx-auto relative mb-10 flex ">
+    <h1 class="capitalize  px-7 py-3 text-[40px] font-[500] leading-[50px]  md:text-[64px] md:font-[900] md:line-h-89 main-text-color">contact us</h1>
+    <img src="./assets/images/Line 1.png" class="absolute top-0 right-0" alt="line 1" />
+    <img src="./assets/images/Line 2.png" class="absolute bottom-0 right-0" alt="line 2" />
+
+    <img src="./assets/images/Line 3.png" class="absolute top-0" alt="line 3">
+
+    <img src="./assets/images/Line 4.png" class="absolute left-0 bottom-0" alt="line 4" />
+  </div>
+  <div class="content w-[65%] mx-auto flex flex-col md:flex-row justify-between  mb-5">
+    <form action="" class="w-full md:w-1/2 mb-4" [formGroup]="sendDataForm" (ngSubmit)="sendUserDta()">
+      <input formControlName="name" type="text" name="name"
+        class="mb-2 rounded-[61px] bg-[#CEDCFF] py-2 px-3 w-full focus:outline-none" id="name" placeholder="Name" />
+      @if(sendDataForm.get("name")?.errors && (sendDataForm.get("name")?.touched || sendDataForm.get("name")?.dirty) ) {
+      <div class="bg-red-200 mb-2 rounded-[61px] py-2 px-3 w-full">
+        @if(sendDataForm.get("name")?.getError("required")) {
+        <p>name required</p>
+        }@else if (sendDataForm.get("name")?.getError("minlength")) {
+        <p>name should be more than 4 caracters</p>
+        }@else if (sendDataForm.get("name")?.getError("maxlength")) {
+        <p>name should be less than 15 caracters</p>
+        }
+      </div>
+      }
+      <input formControlName="email" type="email" name="email"
+        class="mb-2 rounded-[61px] bg-[#CEDCFF] py-2 px-3 w-full focus:outline-none" id="email" placeholder="Email" />
+      @if(sendDataForm.get("email")?.errors && (sendDataForm.get("email")?.touched || sendDataForm.get("email")?.dirty)
+      ) {
+      <div class="bg-red-200 mb-2 rounded-[61px] py-2 px-3 w-full">
+        @if(sendDataForm.get("email")?.getError("required")) {
+        <p>email required</p>
+        }@else if (sendDataForm.get("email")?.getError("email")) {
+        <p>example"&#64;"example.com</p>
+        }
+      </div>
+      }
+      <input formControlName="phone" type="tel" name="phone"
+        class="mb-2 rounded-[61px] bg-[#CEDCFF] py-2 px-3 w-full focus:outline-none" id="phone"
+        placeholder="Phone Number" />
+      @if(sendDataForm.get("phone")?.errors && sendDataForm.get("phone")?.touched) {
+      <div class="bg-red-200 rounded-[61px] py-2 px-3 w-full mb-4">
+        @if(sendDataForm.get("phone")?.getError("required")) {
+        <p>phone number required</p>
+        }@else if (sendDataForm.get("phone")?.getError("pattern")) {
+        <p>ex: 01234567895</p>
+        }
+      </div>
+      }
+      <button type="submit"
+        class="capitalize btn-style px-10 py-2  text-[18px] border-[1px] border-[#5180F6] leading-[21.78px] block mx-auto duration-500 hover:bg-[#5180F6] hover:text-white">
+        send
+      </button>
+      @if(isSuccess) {
+      <div>
+        <p>you message has been sent successfully </p>
+      </div>
+      }
+
+    </form>
+    <div class="w-[40%] flex flex-col  justify-center">
+      <div class="mb-5 flex items-center">
+        <span><i class="fa-solid fa-envelope main-text-color me-3"></i></span>
+        <span>upskilling.eg1.gmail.com</span>
+      </div>
+      <div class="flex items-center">
+        <span><i class="fa-solid fa-phone main-text-color me-3"></i></span>
+        <span>01154932137</span>
+      </div>
+    </div>
+  </div>
+  <div class="h-[100px] bg-[#0C1E49]"></div>
+</section>
